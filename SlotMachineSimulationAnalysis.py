@@ -17,15 +17,16 @@ def play(winTotal):
 def Main():
     winTotal = []
     moneyWon = 0
+    spinCost = 0.5
     repeat = 1000000
     for i in range(repeat):
         winTotal = play(winTotal)
     for row in winTotal:
         moneyWon = moneyWon + row
-    profitTotal = round((0.5*repeat)-moneyWon,2)
+    profitTotal = round((spinCost*repeat)-moneyWon,2)
     winPercent = len(winTotal)/repeat
     print("In a trial of "+str(repeat)+" slot machine spins:"
-        "\nTotal profit: "+str(round((profitTotal/(0.5*repeat)*100),2))+"%",
+        "\nTotal profit: "+str(round((profitTotal/(spinCost*repeat)*100),2))+"%",
         "\nProfit per spin: £"+str(round(profitTotal/repeat,2)),
         "\nExpected wins = 0.01%"
         "\nObserved wins = "+str(round(winPercent,2))+"%")
