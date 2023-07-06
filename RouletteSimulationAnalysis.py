@@ -46,7 +46,7 @@ def main():
     total1 = total1 / repeat
     total35 = total35 / repeat
     print("Out of",repeat,"spins:"
-            "\nTotal profit on £"+str(round(repeat*2*bet,2)),"of bets is £"+str(round(totalProfit,2)),
+            "\nProfit is",str(round((totalProfit/(repeat*2*bet)*100),2))+"%"
             "\nThe average return on £5 per bet 1 to 1 bets is",round(total1,2),"pounds."
             "\nThe average return on £5 per bet on 35 to 1 bets is",round(total35,2),"pounds.")
 

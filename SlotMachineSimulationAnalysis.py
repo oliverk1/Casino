@@ -25,7 +25,7 @@ def Main():
     profitTotal = round((0.5*repeat)-moneyWon,2)
     winPercent = len(winTotal)/repeat
     print("In a trial of "+str(repeat)+" slot machine spins:"
-        "\nTotal profit: £"+str(profitTotal),
+        "\nTotal profit: "+str(round((profitTotal/(0.5*repeat)*100),2))+"%",
         "\nProfit per spin: £"+str(round(profitTotal/repeat,2)),
         "\nExpected wins = 0.01%"
         "\nObserved wins = "+str(round(winPercent,2))+"%")
