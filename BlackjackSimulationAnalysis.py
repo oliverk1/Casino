@@ -28,14 +28,14 @@ def play():
             dealtDealer.append(dealt)
         cards.remove(dealt)
     sum = sumOfCards(dealtPlayer)
-    while sum <= 17:
+    while sum < 17:
         dealt = random.choice(cards)
         dealtPlayer.append(dealt)
         sum = sumOfCards(dealtPlayer)
         if sum > 21:
             bustPlayer = 1
     sum = sumOfCards(dealtDealer)
-    while sum <= 17:
+    while sum < 17:
         dealt = random.choice(cards)
         dealtDealer.append(dealt)
         sum = sumOfCards(dealtDealer)

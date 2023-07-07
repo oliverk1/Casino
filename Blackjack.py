@@ -90,7 +90,7 @@ def play(balance):
 #Once the player is finished the dealer plays.
 #The dealer must always stick once they are 17 or over.
         sum = sumOfCards(dealtDealer)
-        while sum <= 17:
+        while sum < 17:
             dealt = random.choice(cards)
             dealtDealer.append(dealt)
             displayCards(dealtDealer, dealtPlayer)
@@ -187,3 +187,4 @@ def main():
         f.write(str(balance))
 
 main()
+end = input("")

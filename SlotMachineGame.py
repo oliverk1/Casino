@@ -67,3 +67,4 @@ def main():
         f.write(str(balance))
 
 main()
+end = input("")

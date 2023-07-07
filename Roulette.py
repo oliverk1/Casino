@@ -105,3 +105,4 @@ def main():
     with open("balance.txt", "w") as f:
         f.write(str(balance))
 main()
+end = input("")
