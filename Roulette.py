@@ -62,8 +62,9 @@ def getWinnings(spin, colour, choice, bet):
     return win
 
 def main():
-    balance = "£10.74"
-    balance = float(balance.lstrip("£"))
+    with open("balance.txt") as f:
+        contents = f.readlines()
+    balance = float(contents[0])
     while round(balance, 2) > 0:
         print("Balance: £"+str(round(balance,2)))
         bet = getBet(balance)
@@ -74,8 +75,8 @@ def main():
         win = getWinnings(spin, colour, choice, bet)
         balance = balance + win
         print("\n")
-
     print("Thanks for playing!"
           "\nTotal balance remaining: £"+str(round(balance,2)))
-
+    with open("balance.txt", "w") as f:
+        f.write(str(balance))
 main()

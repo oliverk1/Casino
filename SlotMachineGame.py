@@ -34,8 +34,9 @@ def play(balance):
 
 
 def main():
-    balance = "£10.74"
-    balance = float(balance.lstrip("£"))
+    with open("balance.txt") as f:
+        contents = f.readlines()
+    balance = float(contents[0])
     continuePlay = True
     while balance > 0.5 and continuePlay is True:
         print("Balance: £"+str(round(balance,2)),
@@ -46,5 +47,7 @@ def main():
             balance = balance - 0.5
     print("Thanks for playing!"
           "\nTotal balance remaining: £"+str(round(balance,2)))
+    with open("balance.txt", "w") as f:
+        f.write(str(balance))
 
 main()
