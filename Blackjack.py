@@ -30,7 +30,6 @@ def getBet(balance):
         else:
             print("You can not bet that amount.\n")
             continue
-        time.sleep(0.5)
     return bet
 
 def play(balance):
@@ -89,11 +88,11 @@ def play(balance):
 def win(dealtDealer, dealtPlayer, bustDealer, bustPlayer, balance, bet):
     sumDealer = sumOfCards(dealtDealer)
     sumPlayer = sumOfCards(dealtPlayer)
-    if bustDealer == 1 and bustPlayer == 0 or sumPlayer > sumDealer and bustPlayer == 0:
+    if (bustDealer == 1 and bustPlayer == 0) or (sumPlayer > sumDealer and bustPlayer == 0) or (len(dealtPlayer) >= 5 and bustPlayer == 0 and len(dealtDealer) < 5):
         print("You win!\n")
         time.sleep(0.5)
         balance = balance + bet
-    elif bustDealer == 1 and bustPlayer == 1 or sumDealer >= sumPlayer or bustPlayer == 1 and bustDealer == 0:
+    elif (bustDealer == 1 and bustPlayer == 1) or sumDealer >= sumPlayer or (bustPlayer == 1 and bustDealer == 0) or len(dealtDealer) >= 5:
         print("You lose!\n")
         time.sleep(0.5)
         balance = balance - bet
@@ -133,7 +132,6 @@ def hitOrStick(sum):
         else:
             print("Invalid input.\n")
             continue
-        time.sleep(0.5)
     return hit
 
 def displayCards(dealtDealer, dealtPlayer):
