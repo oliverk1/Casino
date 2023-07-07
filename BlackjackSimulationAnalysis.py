@@ -1,5 +1,4 @@
 import random
-#Time needed so user is not overwhelmed with text.
 import time
 
 def createDecks():
