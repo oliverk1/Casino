@@ -74,6 +74,8 @@ def main():
         spin, colour = rouletteSpin()
         win = getWinnings(spin, colour, choice, bet)
         balance = balance + win
+        with open("balance.txt", "w") as f:
+            f.write(str(balance))
         print("\n")
     print("Thanks for playing!"
           "\nTotal balance remaining: £"+str(round(balance,2)))

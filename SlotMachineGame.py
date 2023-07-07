@@ -29,6 +29,8 @@ def play(balance):
     if (result):
         print("You won!")
         balance = balance + win[reelItem]
+    with open("balance.txt", "w") as f:
+        f.write(str(balance))
     return balance
 
 
@@ -45,6 +47,8 @@ def main():
         if spin is True:
             balance = play(balance)
             balance = balance - 0.5
+            with open("balance.txt", "w") as f:
+                f.write(str(balance))
     print("Thanks for playing!"
           "\nTotal balance remaining: £"+str(round(balance,2)))
     with open("balance.txt", "w") as f:
