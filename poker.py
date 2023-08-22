@@ -69,6 +69,8 @@ def newHand(cards,playerCards):
 def score(playerCards):
     Scores = {'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,
               'J':11,'Q':12,'K':13,'A':1}
+    invScores = {v: k for k, v in Scores.items()}
+    invScores[14]='A'
     cards = playerCards
     unscoredValues = []
     values = []
@@ -121,7 +123,7 @@ def score(playerCards):
     elif highCount[0] == 4:
         scoreRank = [8,highCount[1],"four of a kind"]
     elif fullhouse is True:
-        scoreRank = [7,highCount[1],"a fullhouse"]
+        scoreRank = [7,highCount[1],"a full house"]
     elif flush is True:
         scoreRank = [6,values[4],"a flush"]
     elif straight is True:
@@ -131,9 +133,9 @@ def score(playerCards):
     elif twoPair is True:
         scoreRank = [3,highCount[1],"two pairs"]
     elif highCount[0] == 2:
-        scoreRank = [2,highCount[1],"a pair of "+str(highCount[1])]
+        scoreRank = [2,highCount[1],"a pair of "+str(invScores[highCount[1]])+"s"]
     else:
-        scoreRank = [1,values[4],"a "+str(values[4])+" high card"]
+        scoreRank = [1,values[4],str(invScores[values[4]])+" high card"]
     return scoreRank
 
 def winner(bot, player):
