@@ -115,30 +115,30 @@ def score(playerCards):
             values.append(highCount[1])
         values.sort()
     if values == ['10','11','12','13','14'] and flush is True:
-        scoreRank = [10,0,"Royal Flush"]
+        scoreRank = [10,0,"a royal flush"]
     elif straight is True and flush is True:
-        scoreRank = [9,straightHigh,"Straight Flush"]
+        scoreRank = [9,straightHigh,"a straight flush"]
     elif highCount[0] == 4:
-        scoreRank = [8,highCount[1],"4 of a Kind"]
+        scoreRank = [8,highCount[1],"four of a kind"]
     elif fullhouse is True:
-        scoreRank = [7,highCount[1],"Fullhouse"]
+        scoreRank = [7,highCount[1],"a fullhouse"]
     elif flush is True:
-        scoreRank = [6,values[4],"Flush"]
+        scoreRank = [6,values[4],"a flush"]
     elif straight is True:
-        scoreRank = [5,straightHigh,"Straight"]
+        scoreRank = [5,straightHigh,"a straight"]
     elif highCount[0] == 3:
-        scoreRank = [4,highCount[1],"3 of a Kind"]
+        scoreRank = [4,highCount[1],"three of a Kind"]
     elif twoPair is True:
-        scoreRank = [3,highCount[1],"2 Pair"]
+        scoreRank = [3,highCount[1],"two pairs"]
     elif highCount[0] == 2:
-        scoreRank = [2,highCount[1],"Pair of "+str(highCount[1])]
+        scoreRank = [2,highCount[1],"a pair of "+str(highCount[1])]
     else:
-        scoreRank = [1,values[4],str(values[4])+" High Card"]
+        scoreRank = [1,values[4],"a "+str(values[4])+" high card"]
     return scoreRank
 
 def winner(bot, player):
-    print("Player had",player[2],
-          "\nComputer had",bot[2])
+    print("Player had",player[2]+".",
+          "\nComputer had",bot[2]+".")
     if player[0] > bot[0] or (player[0] == bot[0] and player[1] > bot[1]):
         print("Player wins!")
     elif player == bot:
