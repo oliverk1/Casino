@@ -27,7 +27,8 @@ def dealCards(cards,player,balance):
     time.sleep(0.2)
     if player == "Player":
         bet = getBet(balance)
-        newHand(cards,playerCards)
+        if bet != 0:
+            newHand(cards,playerCards)
     scoreRank = score(playerCards)
     return scoreRank, cards, bet
 
@@ -190,12 +191,13 @@ def main():
     balance = float(contents[0])
     cards = createDecks()
     player, cards, bet = dealCards(cards,"Player",balance)
-    bot, cards, cbet = dealCards(cards,"Computer",balance)
-    win = winner(bot,player)
-    if win == 1:
-        balance = balance + bet
-    if win == -1:
-        balance = balance - bet
+    if bet != 0:
+        bot, cards, cbet = dealCards(cards,"Computer",balance)
+        win = winner(bot,player)
+        if win == 1:
+            balance = balance + bet
+        if win == -1:
+            balance = balance - bet
     print("Thanks for playing!"
           "\nTotal balance remaining: £"+str(round(balance,2)))
     with open("balance.txt", "w") as f:
