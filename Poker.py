@@ -158,7 +158,7 @@ def score(playerCards):
     elif straight is True:
         scoreRank = [5,straightHigh,"a straight"]
     elif highCount[0] == 3:
-        scoreRank = [4,highCount[1],"three of a Kind"]
+        scoreRank = [4,highCount[1],"three of a kind"]
     elif twoPair is True:
         scoreRank = [3,highCount[1],"two pairs"]
     elif highCount[0] == 2:
@@ -198,7 +198,7 @@ def main():
             balance = balance + bet
         if win == -1:
             balance = balance - bet
-    print("Thanks for playing!"
+    print("Thanks for playing!"     
           "\nTotal balance remaining: £"+str(round(balance,2)))
     with open("balance.txt", "w") as f:
         f.write(str(balance))
